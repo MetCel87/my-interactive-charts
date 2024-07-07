@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Emissions Source Chart&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/react/umd/react.development.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/react-dom/umd/react-dom.development.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/babel-standalone/babel.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.1.9/umd/Recharts.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="root"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="text/babel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } = Recharts;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const data = [</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ name: 'Energy Use', value: 18560 },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ name: 'Transportation', value: 6400 },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ name: 'Waste', value: 3840 },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{ name: 'Water', value: 3200 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const EmissionsSourceChart = () =&gt; (</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ResponsiveContainer width="100%" height={400}&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;PieChart&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;Pie</p>
+<p class="p1"><span class="Apple-converted-space">                </span>data={data}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cx="50%"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cy="50%"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labelLine={false}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>outerRadius={150}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>fill="#8884d8"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dataKey="value"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>label={({ name, percent }) =&gt; `${name} ${(percent * 100).toFixed(0)}%`}</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{data.map((entry, index) =&gt; (</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>))}</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/Pie&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;Tooltip /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;Legend /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/PieChart&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/ResponsiveContainer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>ReactDOM.render(&lt;EmissionsSourceChart /&gt;, document.getElementById('root'));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
